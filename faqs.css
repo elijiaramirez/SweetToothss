@@ -1,0 +1,273 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+:root {
+    --primaryColor: #fb7f79;
+    --softColor: #ffcfc4;
+    --whiteColor: #f5f5f5;
+    --blackColor: #222;
+    --headerBg: #b1cdeb;
+    --highlightColor: #fdeeb2;
+    --textColor: #4f4f4f;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--softColor);
+    color: var(--textColor);
+    width: 100%;
+    margin: 0 auto;
+    font-family: 'Poppins', sans-serif;
+}
+
+header {
+    background-color: var(--headerBg);
+    color: #333;
+    padding: 10px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed;
+    z-index: 1000;
+    width: 100%;
+    top: 0;
+    box-sizing: border-box;
+    font-family: 'Cinzel Decorative', serif;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo img {
+    width: 90px;
+    margin-right: 10px;
+}
+
+.name {
+    font-family: "Cinzel Decorative", serif;
+    font-size: 25px;
+    color: var(--primaryColor);
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+}
+
+.name span {
+    color: #f5f5f5;
+}
+
+.sweet {
+    font-size: 30px;
+    color: var(--primaryColor);
+}
+
+.tooth {
+    font-size: 30px;
+    color: var(--whiteColor);
+}
+
+nav ul {
+    display: flex;
+    list-style: none;
+    gap: 20px;
+}
+
+nav ul li {
+    font-family: "Julius Sans One", sans-serif;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+nav ul li a {
+    color: var(--whiteColor);
+    text-decoration: none;
+    padding: 5px 12px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+nav ul li a:hover {
+    color: var(--highlightColor);
+    border-bottom: 3px solid var(--highlightColor);
+}
+
+.body {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    background-color: var(--softColor);
+}
+
+.title {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('candyland.jpg');
+    background-position: top center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 5% 3%;
+    border-radius: 30px;
+    max-height: 350px;
+    color: var(--whiteColor);
+    margin-top: 80px;
+    font-family: "Poppins", sans-serif;
+}
+
+.h1 {
+    font-size: 48px;
+    letter-spacing: 1.5;
+}
+
+.desc {
+    font-size: 14px;
+    letter-spacing: 1;
+    text-align: center;
+}
+
+.search {
+    width: 60%;
+    height: 50px;
+    background-color: var(--whiteColor);
+    margin-top: 5%;
+    border-radius: 30px;
+    display: flex;
+    justify-content: space-between;
+    padding: 5px;
+}
+
+.search input {
+    width: 80%;
+    height: 40px;
+    padding: 0 10px;
+    background: transparent;
+    border: 1px solid var(--primaryColor);
+    border-radius: 20px;
+    color: var(--primaryColor);
+    font-size: 16px;
+    outline: none;
+}
+
+.search button {
+    width: 20%;
+    min-width: 100px;
+    height: 40px;
+    background-color: var(--primaryColor);
+    color: var(--whiteColor);
+    border: none;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.search button:hover {
+    background-color: var(--blackColor);
+}
+
+.letter {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    padding: 3%;
+}
+
+.name {
+    flex: 0.5;
+    padding: 2% 2% 0 0 0;
+}
+
+.letter-faq {
+    padding: 5% 0 0 0;
+    font-size: 40px;
+    letter-spacing: 2;
+}
+
+.faq-img {
+    width: 100;
+    max-width: 400px;
+}
+
+.box-faq {
+    flex: 1;
+    min-width: 320px;
+    padding: 2% 0% 4% 4%;
+    border-left: 2px solid var(--primaryColor);
+}
+
+.faq-wrapper {
+    width: 100%;
+    padding: 1.5rem;
+    border-bottom: 1px solid var(--p);
+}
+
+.faq-title {
+    display: block;
+    position: relative;
+    width: 100%;
+    letter-spacing: 1.2px;
+    font-size: 24px;
+    font-weight: 600;
+    color: var(--primaryColor);
+}
+
+.faq-title:after {
+    width: 10px;
+    height: 10px;
+    content: "";
+    float: right;
+    border-style: solid;
+    border-width: 2px 2px 0 0;
+    transition: transform 0.4s ease-in-out;
+}
+
+.faq-details {
+    line-height: 1.5;
+    letter-spacing: 1px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-in-out;
+    font-size: 14px;
+}
+
+.faq-trigger {
+    display: none;
+}
+
+.faq-trigger:checked + .faq-title + .faq-details {
+    max-height: 500px;
+}
+
+.faq-trigger:checked + .faq-title:after {
+    transform: rotate(-45deg);
+}
+
+footer {
+    background-color: #b1cdeb;
+    padding: 20px;
+    text-align: center;
+}
+
+footer p {
+    color: #4f4f4f;
+    margin-bottom: 10px;
+}
+
+footer a {
+    color: #4f4f4f;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: bold;
+}
+
+footer a:hover {
+    color: #fdeeb2;
+}

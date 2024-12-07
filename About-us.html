@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - Restaurant Website</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="aboutus.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=DM+Serif+Text:ital@0;1&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant:ital,wght@0,300..700;1,300..700&family=DM+Serif+Text:ital@0;1&family=Julius+Sans+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant:ital,wght@0,300..700;1,300..700&family=DM+Serif+Text:ital@0;1&family=Great+Vibes&family=Julius+Sans+One&family=Limelight&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant:ital,wght@0,300..700;1,300..700&family=DM+Serif+Text:ital@0;1&family=Great+Vibes&family=Julius+Sans+One&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Limelight&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel+Decorative:wght@400;700;900&family=Cormorant:ital,wght@0,300..700;1,300..700&family=DM+Serif+Text:ital@0;1&family=Great+Vibes&family=Julius+Sans+One&family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Limelight&family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+
+
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="logo.png" alt="Logo">
+            <a class="name">Sweet <span>Tooth</span></a>
+            </div>
+        </div>
+
+        <nav>
+            <ul>
+                <li><a href="Home.html">Home</a></li>
+                <li><a href="Menu.html">Menu</a></li>
+                <li><a href="Faqs.html">FAQs</a></li>
+                <li><a href="About-us.html">About Us</a></li>
+                <li><a href="Contact-us.html">Contact Us</a></li>
+                
+            </ul>
+        </nav>
+
+    </header>
+    <section>
+        <h1>About Us</h1>
+        <img src="storee.jpg" alt="Restaurant Image" class="about-image">
+
+        <div class="about-logo">
+            <img src="logo.png" alt="About Us Logo">
+        </div>>
+        <div class="info-boxes">
+            <div class="box">
+                <h2>Our Story</h2>
+                <p>
+                    Sweet-Tooth began as a simple idea between friends who shared an unshakable love for all things sweet. Late-night conversations filled with laughter and dreams of creating something special led to the birth of our little store. Inspired by the desserts we grew up loving and the joy of sharing them with others, we decided to turn our passion into a place where everyone could experience the happiness that comes with a perfect treat.
+                </p>
+            </div>
+            <div class="box">
+                <h2>Meaning for Sweet-Tooth</h2>
+                <p>
+                    The term "Sweet-Tooth" refers to a love for all things sugary and delightful. We believe that indulgence in sweets is not just about satisfying a craving, but about enjoying life's simple pleasures. Our name represents our passion for creating treats that bring joy and comfort to our customers.
+                </p>
+            </div>
+        </div>
+
+    </section>
+
+   
+    <div class="creator-section">
+
+        <div class="creator" onclick="toggleCreatorInfo('creator1')">
+            <img src="iana.jpg" alt="Creator 1">
+            <div class="creator-info" id="creator1">
+                <h4>Iana Klarize</h4>
+                <h4>(Main) Coder & Co-Designer</h4>
+            </div>
+        </div>
+
+
+        <div class="creator" onclick="toggleCreatorInfo('creator2')">
+            <img src="eli.jpg" alt="Creator 2">
+            <div class="creator-info" id="creator2">
+                <h4>Elija</h4>
+                <h4>(Main) Designer & Co-Coder</h4>
+            </div>
+        </div>
+    </div>
+
+    <div class="cookie-game">
+        <h2>Cookie Clicker!</h2>
+        <button class="cookie-button" onclick="incrementClicks()" aria-label="Click the cookie button"></button>
+        <div class="cookie-count">
+            Clicks: <span id="cookieCount">0</span>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2024 Sweet-Tooth. All rights reserved.</p>
+        <div>
+            <a href="terms-of-service.html">Terms of Service</a> |
+            <a href="privacy-policy.html">Privacy Policy</a> |
+            <a href="https://facebook.com/sweet-treats" target="_blank">Facebook</a> |
+            <a href="https://instagram.com/sweet-treats" target="_blank">Instagram</a>
+        </div>
+    </footer>
+
+    <script>
+        function showPhoneCallModal() {
+            alert("Contact us: 0966666666666");
+        }
+
+        function toggleCreatorInfo(creatorId) {
+            $('#' + creatorId).slideToggle();
+        }
+
+        let cookieCount = 0;
+
+        function incrementClicks() {
+            cookieCount++;
+            document.getElementById('cookieCount').innerText = cookieCount;
+        }
+    </script>
+
+</body>
+</html>
