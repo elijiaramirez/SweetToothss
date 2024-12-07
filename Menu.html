@@ -434,17 +434,15 @@
             </div>
             
             
-            <script>
-             
-             let cart = [];
-
+           <script>
+let cart = [];
 
 const cartItemsContainer = document.getElementById('cart-items');
 const totalPriceElement = document.getElementById('total-price');
 const processOrderButton = document.getElementById('process-order');
 const cartSidebar = document.getElementById('cart-sidebar');
 const closeCartButton = document.getElementById('close-cart');
-
+const cartToggleButton = document.getElementById('cart-button'); // Add your cart button here
 
 function updateCart() {
     cartItemsContainer.innerHTML = '';
@@ -452,23 +450,23 @@ function updateCart() {
     if (cart.length === 0) {
         cartItemsContainer.innerHTML = '<p>No items in the cart</p>';
         processOrderButton.disabled = true;
-        totalPriceElement.textContent = '0.00'; 
+        totalPriceElement.textContent = '0.00';
         return;
     }
 
     let total = 0;
 
     cart.forEach((item, index) => {
-        const price = parseFloat(item.price); 
-        const quantity = parseInt(item.quantity, 10); 
+        const price = parseFloat(item.price);
+        const quantity = parseInt(item.quantity, 10);
         if (isNaN(price) || isNaN(quantity)) {
             console.error('Invalid price or quantity for item:', item);
-            return; 
+            return;
         }
 
         const cartItemElement = document.createElement('div');
         cartItemElement.classList.add('cart-item');
-        cartItemElement.setAttribute('data-index', index); 
+        cartItemElement.setAttribute('data-index', index);
 
         cartItemElement.innerHTML = `
             <span class="item-name">${item.name}</span>
@@ -482,15 +480,13 @@ function updateCart() {
         total += price * quantity;
     });
 
-    totalPriceElement.textContent = total.toFixed(2); 
+    totalPriceElement.textContent = total.toFixed(2);
     processOrderButton.disabled = cart.length === 0;
 }
 
-
 document.addEventListener('DOMContentLoaded', () => {
-    updateCart(); 
+    updateCart();
 });
-
 
 cartItemsContainer.addEventListener('input', (event) => {
     if (event.target.classList.contains('item-quantity')) {
@@ -503,15 +499,13 @@ cartItemsContainer.addEventListener('input', (event) => {
     }
 });
 
-
 cartItemsContainer.addEventListener('click', (event) => {
     if (event.target.classList.contains('remove-item')) {
         const index = event.target.dataset.index;
-        cart.splice(index, 1);  
-        updateCart();  
+        cart.splice(index, 1);
+        updateCart();
     }
 });
-
 
 function addItemToCart(name, price) {
     const itemIndex = cart.findIndex(item => item.name === name);
@@ -523,39 +517,43 @@ function addItemToCart(name, price) {
     updateCart();
 }
 
-
 function toggleCart() {
-    cartSidebar.classList.toggle('open'); 
+    cartSidebar.classList.toggle('open');
 }
 
-
 function processOrder() {
-    console.log(cart); 
     const cartItems = document.getElementById("cart-items").innerHTML.trim();
 
     if (cartItems === "<p>No items in the cart</p>") {
         alert("Your cart is empty. Please add items before processing your order.");
     } else {
         alert("Your order has been successfully processed! Thank you!");
-        cart = [];  
-        updateCart();  
+        cart = [];
+        updateCart();
     }
 }
 
+// Attach event listener to cart toggle button
+cartToggleButton.addEventListener('click', () => {
+    toggleCart();
+});
 
 document.querySelectorAll('.add-to-cart').forEach(button => {
     button.addEventListener('click', (event) => {
         const name = event.target.dataset.name;
-        const price = parseInt(event.target.dataset.price);
+        const price = parseFloat(event.target.dataset.price);
+        if (isNaN(price)) {
+            console.error("Invalid price value:", event.target.dataset.price);
+            return;
+        }
         addItemToCart(name, price);
     });
 });
 
-
 closeCartButton.addEventListener('click', () => {
-    cartSidebar.classList.remove('open'); 
+    cartSidebar.classList.remove('open');
 });
- </script>
+</script>
 
 </body>
 </html>
